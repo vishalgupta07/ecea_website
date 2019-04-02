@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/2.1/ref/settings/
 """
 
 import os
+import django_heroku
 # import psycopg2
 # import dj_database_url
 
@@ -144,3 +145,4 @@ EMAIL_USE_TLS = True
 EMAIL_HOST_USER =  'gvishal@student.nitw.ac.in'
 EMAIL_HOST_PASSWORD =  'raqovhhycsmtewza'
 # DATABASES['default'] = dj_database_url.config(conn_max_age=600, ssl_require=True)
+django_heroku.settings(locals())
