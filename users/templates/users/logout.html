@@ -1,0 +1,10 @@
+{% extends "blog/base.html" %} <!--template inheritance from blog/base.html-->
+
+{% block content %}  <!--wrapping the thing in a content block-->
+	<h2>You have been logged out</h2>
+	<div class="border-top pt-3">
+		<small class="text-muted">
+			Already Have An Account? <a class="ml-2" href="{% url 'login'%}">Log in again</a>
+		</small>
+	</div>
+{% endblock content %}  <!--ending the content 'block' here-->
