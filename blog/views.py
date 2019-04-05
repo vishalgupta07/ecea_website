@@ -6,7 +6,7 @@ from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.http import HttpResponse
 from django.contrib.auth.models import User
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
-from .models import Post
+from .models import Post, Events
 
 
 
@@ -22,7 +22,6 @@ def home(request):
 	return render(request, 'blog/home.html',context)
 
 
-
 #This is view for viewing all the posts in 'localhost:8000/' url 
 #template of the class is store in 'blog/home.html'
 class PostListView(ListView):
@@ -35,6 +34,17 @@ class PostListView(ListView):
 	context_object_name = 'posts' 
 	ordering = ['-date_posted']
 	paginate_by = 2
+
+class EventListView(ListView):
+	model = Events
+	template_name = 'blog/events.html'
+	#context_object_name is name passed along as the return type of object_list
+	#to the given 'blog/home.html' file 
+	#here(html template) instead of using object_list we use 'posts' as the looping object_list
+	#it does not have any relationship with the dictionary defined above in home function
+	context_object_name = 'events' 
+	ordering = ['-date_posted']
+	paginate_by = 4
 
 
 
